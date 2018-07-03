@@ -1,0 +1,37 @@
+#!/bin/bash
+# usage: builddata <ouput file prefix>
+prefix=${1:-"stdlib"}
+
+root="$(pwd)"
+stdlibDir="$root/swift-source/swift/stdlib/public/core/"
+outputDir="$root/data/$prefix"
+
+# Keep intermediate files for reference/debug
+stdlibFile="$outputDir/$prefix.swift.txt"
+sourcekittenFile="$outputDir/$prefix.sourcekitten.json"
+typesFile="$outputDir/$prefix.types.json"
+typesFullFile="$outputDir/$prefix.types-full.json"
+dotFile="$outputDir/$prefix.dot"
+
+set -x
+
+mkdir -p "$outputDir"
+
+# gyb
+cp bin/processGyb.sh "$stdlibDir"
+cd "$stdlibDir"
+bash processGyb.sh
+
+# sourcekitten
+cat *.swift > "$stdlibFile"
+sourcekitten structure --file "$stdlibFile" | jq -c . > "$sourcekittenFile"
+
+# collect types
+node "$root/bin/collect-types" "$sourcekittenFile" > "$typesFile"
+node "$root/bin/collect-types" -full "$sourcekittenFile" > "$typesFullFile"
+
+# make dot
+node "$root/bin/make-dot" "$typesFile" > "$dotFile"
+
+# make PDF
+dot -Tpdf -O "$dotFile"

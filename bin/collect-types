@@ -1,0 +1,113 @@
+#!/usr/bin/env node
+
+const fs = require("fs");
+const {collectTypes} = require("../");
+const argv = process.argv.slice(2);
+
+let path;
+let filterOptions;
+
+if (argv.length === 1) {
+    path = argv[0];
+
+    // If not `full` only include "public" types.
+    filterOptions = {
+        kinds: ["class", "enum", "protocol", "struct", "extension", undefined],
+        accessLevels: ["open", "public", undefined],
+        includeNested: false,
+        includeUnderscored: false,
+        includeDeprecated: false,
+        // These were identified by hand from the source code...
+        // version: swift-4.2-DEVELOPMENT-SNAPSHOT-2018-06-28-a
+        deprecations: [
+            "AbsoluteValuable",
+            "ArrayLiteralConvertible",
+            "BidirectionalIndexable",
+            "BidirectionalSlice",
+            "BitwiseOperations",
+            "BooleanLiteralConvertible",
+            "ClosedRangeIndex",
+            "Collection.Generator",
+            "Collection.IndexDistance",
+            "Collection._Element",
+            "CustomPlaygroundQuickLookable",
+            "DefaultBidirectionalIndices",
+            "DefaultRandomAccessIndices",
+            "DictionaryLiteralConvertible",
+            "ExpressibleByStringInterpolation",
+            "ExtendedGraphemeClusterLiteralConvertible",
+            "FlattenBidirectionalCollection",
+            "FlattenBidirectionalCollectionIndex",
+            "FloatLiteralConvertible",
+            "FloatingPointType",
+            "ImplicitlyUnwrappedOptional",
+            "Indexable",
+            "IndexableBase",
+            "IntMax",
+            "Integer",
+            "IntegerArithmetic",
+            "IntegerLiteralConvertible",
+            "LazyBidirectionalCollection",
+            "LazyDropWhileBidirectionalCollection",
+            "LazyDropWhileIndex",
+            "LazyDropWhileIterator",
+            "LazyFilterBidirectionalCollection",
+            "LazyMapBidirectionalCollection",
+            "LazyMapRandomAccessCollection",
+            "LazyPrefixWhileBidirectionalCollection",
+            "LazyPrefixWhileIndex",
+            "LazyPrefixWhileIterator",
+            "LazyRandomAccessCollection",
+            "MutableBidirectionalSlice",
+            "MutableIndexable",
+            "MutableRandomAccessSlice",
+            "MutableRangeReplaceableBidirectionalSlice",
+            "MutableRangeReplaceableRandomAccessSlice",
+            "MutableRangeReplaceableSlice",
+            "MutableSlice",
+            "NilLiteralConvertible",
+            "OutputStreamType",
+            "PlaygroundQuickLook",
+            "RandomAccessIndexable",
+            "RandomAccessSlice",
+            "RangeReplaceableBidirectionalSlice",
+            "RangeReplaceableIndexable",
+            "RangeReplaceableRandomAccessSlice",
+            "RangeReplaceableSlice",
+            "SignedNumber",
+            "String.CharacterView",
+            "StringInterpolationConvertible",
+            "StringLiteralConvertible",
+            "StringProtocol.UTF16Index",
+            "StringProtocol.UTF8Index",
+            "StringProtocol.UnicodeScalarIndex",
+            "Substring.CharacterView",
+            "UIntMax",
+            "UnicodeScalarLiteralConvertible",
+            "UnsafeBufferPointerIterator",
+            "Zip2Sequence.Stream1",
+            "Zip2Sequence.Stream2",
+            "_BuiltinBooleanLiteralConvertible",
+            "_BuiltinExtendedGraphemeClusterLiteralConvertible",
+            "_BuiltinFloatLiteralConvertible",
+            "_BuiltinIntegerLiteralConvertible",
+            "_BuiltinStringLiteralConvertible",
+            "_BuiltinUTF16StringLiteralConvertible",
+            "_BuiltinUnicodeScalarLiteralConvertible",
+            "_ColorLiteralConvertible",
+            "_DefaultCustomPlaygroundQuickLookable",
+            "_FileReferenceLiteralConvertible",
+            "_ImageLiteralConvertible",
+            "_SignedInteger",
+        ]
+    };
+} else if ((argv.length === 2) && (argv[0] == "-full")) {
+    path = argv[1];
+} else {
+    console.error("Usage: collect-types [-full] <sourcekitten-json-file>");
+    process.exit(1);
+}
+
+const data = JSON.parse(fs.readFileSync(path));
+const types = collectTypes(data, filterOptions);
+console.log(JSON.stringify(types));

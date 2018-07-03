@@ -1,0 +1,753 @@
+
+    strict digraph {
+        rankdir=RL
+        ranksep=0.3 // 3
+        nodesep=0.12
+        center=true
+        splines=false
+        outputorder=edgesfirst
+        pad="0.4, 0.8"
+        bgcolor="#F7F7F7"
+
+        // Styles
+        node [
+          shape=box,
+          style="rounded, filled",
+          color="black",
+          fillcolor="gray",
+          fontcolor="white",
+          penwidth=2.0,
+          margin="0.25, 0.15",
+          fontname="helvetica-bold",
+          fontsize=20
+        ]
+
+        edge [
+          color="#31ACFCF2",
+          penwidth=1.2
+        ]
+
+        // Legend
+        
+    subgraph cluster_legend {
+        label="Types and Relationships"
+        fontname="helvetica-bold"
+        fontsize=30
+        color=invis
+
+        node [fontsize=20]
+        edge [fontname="helvetica-bold", fontsize=14]
+
+        // Nodes
+        Class, Class1, Class2 [label="Class"] [color="#9C0027", fillcolor="#CF1C5AE6"]
+        Protocol, Protocol1, Protocol2 [label="Protocol"] [color="#07871B", fillcolor="#3ABA4EE6"]
+        Enum, Enum2 [label="Enum"] [color="#0577E6", fillcolor="#1E90FFE6"]
+        Struct, Struct2 [label="Struct"] [color="#7B0FBC", fillcolor="#AE42EFE6"]
+        Typealias [color="#C88200", fillcolor="#FBB52EE6"]
+        Unknown [color="#3E4756", fillcolor="#57606FE6"]
+
+        // Edges
+        Enum -> Protocol [label="conforms to protocol"]
+        Struct -> Protocol [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+        Class -> Protocol [color="#9C0027", fillcolor="#CF1C5AE6"]
+        Protocol1 -> Protocol2 [label="inherits from protocol"] [color="#07871B", fillcolor="#3ABA4EE6"]
+        Class1 -> Class2 [label="inherits from class"] [color="#9C0027", fillcolor="#CF1C5AE6"]
+        Enum2 -> Struct2 [label="type of raw values"] [color="#0577E6", fillcolor="#1E90FFE6"]
+    }
+
+        // Nodes, edges
+        "AnyBidirectionalCollection" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="AnyBidirectionalCollection (struct)"]
+"AnyCollection" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="AnyCollection (struct)"]
+"AnyHashable" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="AnyHashable (struct)"]
+"AnyIndex" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="AnyIndex (struct)"]
+"AnyIterator" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="AnyIterator (struct)"]
+"AnyKeyPath" [color="#9C0027", fillcolor="#CF1C5AE6"] [tooltip="AnyKeyPath (class)"]
+"AnyRandomAccessCollection" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="AnyRandomAccessCollection (struct)"]
+"AnySequence" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="AnySequence (struct)"]
+"Array" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Array (struct)"]
+"ArraySlice" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="ArraySlice (struct)"]
+"AutoreleasingUnsafeMutablePointer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="AutoreleasingUnsafeMutablePointer (struct)"]
+"BidirectionalCollection" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="BidirectionalCollection (protocol)"]
+"BinaryFloatingPoint" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="BinaryFloatingPoint (protocol)"]
+"BinaryInteger" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="BinaryInteger (protocol)"]
+"Bool" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Bool (struct)"]
+"CVaListPointer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="CVaListPointer (struct)"]
+"CVarArg" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="CVarArg (protocol)"]
+"CaseIterable" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="CaseIterable (protocol)"]
+"Character" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Character (struct)"]
+"ClosedRange" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="ClosedRange (struct)"]
+"CodingKey" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="CodingKey (protocol)"]
+"CodingUserInfoKey" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="CodingUserInfoKey (struct)"]
+"Collection" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="Collection (protocol)"]
+"CollectionOfOne" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="CollectionOfOne (struct)"]
+"CommandLine" [color="#0577E6", fillcolor="#1E90FFE6"] [tooltip="CommandLine (enum)"]
+"Comparable" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="Comparable (protocol)"]
+"ContiguousArray" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="ContiguousArray (struct)"]
+"CustomDebugStringConvertible" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="CustomDebugStringConvertible (protocol)"]
+"CustomLeafReflectable" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="CustomLeafReflectable (protocol)"]
+"CustomPlaygroundDisplayConvertible" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="CustomPlaygroundDisplayConvertible (protocol)"]
+"CustomReflectable" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="CustomReflectable (protocol)"]
+"CustomStringConvertible" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="CustomStringConvertible (protocol)"]
+"Decodable" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="Decodable (protocol)"]
+"Decoder" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="Decoder (protocol)"]
+"DecodingError" [color="#0577E6", fillcolor="#1E90FFE6"] [tooltip="DecodingError (enum)"]
+"DefaultIndices" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="DefaultIndices (struct)"]
+"Dictionary" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Dictionary (struct)"]
+"DictionaryIterator" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="DictionaryIterator (struct)"]
+"DictionaryLiteral" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="DictionaryLiteral (struct)"]
+"Double" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Double (struct)"]
+"EmptyCollection" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="EmptyCollection (struct)"]
+"Encodable" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="Encodable (protocol)"]
+"Encoder" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="Encoder (protocol)"]
+"EncodingError" [color="#0577E6", fillcolor="#1E90FFE6"] [tooltip="EncodingError (enum)"]
+"EnumeratedIterator" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="EnumeratedIterator (struct)"]
+"EnumeratedSequence" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="EnumeratedSequence (struct)"]
+"Equatable" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="Equatable (protocol)"]
+"Error" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="Error (protocol)"]
+"ExpressibleByArrayLiteral" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="ExpressibleByArrayLiteral (protocol)"]
+"ExpressibleByBooleanLiteral" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="ExpressibleByBooleanLiteral (protocol)"]
+"ExpressibleByDictionaryLiteral" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="ExpressibleByDictionaryLiteral (protocol)"]
+"ExpressibleByExtendedGraphemeClusterLiteral" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="ExpressibleByExtendedGraphemeClusterLiteral (protocol)"]
+"ExpressibleByFloatLiteral" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="ExpressibleByFloatLiteral (protocol)"]
+"ExpressibleByIntegerLiteral" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="ExpressibleByIntegerLiteral (protocol)"]
+"ExpressibleByNilLiteral" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="ExpressibleByNilLiteral (protocol)"]
+"ExpressibleByStringLiteral" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="ExpressibleByStringLiteral (protocol)"]
+"ExpressibleByUnicodeScalarLiteral" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="ExpressibleByUnicodeScalarLiteral (protocol)"]
+"FixedWidthInteger" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="FixedWidthInteger (protocol)"]
+"FlattenCollection" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="FlattenCollection (struct)"]
+"FlattenSequence" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="FlattenSequence (struct)"]
+"Float" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Float (struct)"]
+"Float80" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Float80 (struct)"]
+"FloatingPoint" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="FloatingPoint (protocol)"]
+"FloatingPointClassification" [color="#0577E6", fillcolor="#1E90FFE6"] [tooltip="FloatingPointClassification (enum)"]
+"FloatingPointRoundingRule" [color="#0577E6", fillcolor="#1E90FFE6"] [tooltip="FloatingPointRoundingRule (enum)"]
+"FloatingPointSign" [color="#0577E6", fillcolor="#1E90FFE6"] [tooltip="FloatingPointSign (enum)"]
+"Hashable" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="Hashable (protocol)"]
+"Hasher" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Hasher (struct)"]
+"IndexingIterator" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="IndexingIterator (struct)"]
+"Int" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Int (struct)"]
+"Int16" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Int16 (struct)"]
+"Int32" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Int32 (struct)"]
+"Int64" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Int64 (struct)"]
+"Int8" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Int8 (struct)"]
+"IteratorOverOne" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="IteratorOverOne (struct)"]
+"IteratorProtocol" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="IteratorProtocol (protocol)"]
+"IteratorSequence" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="IteratorSequence (struct)"]
+"JoinedSequence" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="JoinedSequence (struct)"]
+"KeyPath" [color="#9C0027", fillcolor="#CF1C5AE6"] [tooltip="KeyPath (class)"]
+"KeyedDecodingContainer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="KeyedDecodingContainer (struct)"]
+"KeyedDecodingContainerProtocol" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="KeyedDecodingContainerProtocol (protocol)"]
+"KeyedEncodingContainer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="KeyedEncodingContainer (struct)"]
+"KeyedEncodingContainerProtocol" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="KeyedEncodingContainerProtocol (protocol)"]
+"LazyCollection" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="LazyCollection (struct)"]
+"LazyCollectionProtocol" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="LazyCollectionProtocol (protocol)"]
+"LazyDropWhileCollection" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="LazyDropWhileCollection (struct)"]
+"LazyDropWhileSequence" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="LazyDropWhileSequence (struct)"]
+"LazyFilterCollection" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="LazyFilterCollection (struct)"]
+"LazyFilterSequence" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="LazyFilterSequence (struct)"]
+"LazyMapCollection" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="LazyMapCollection (struct)"]
+"LazyMapSequence" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="LazyMapSequence (struct)"]
+"LazyPrefixWhileCollection" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="LazyPrefixWhileCollection (struct)"]
+"LazyPrefixWhileSequence" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="LazyPrefixWhileSequence (struct)"]
+"LazySequence" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="LazySequence (struct)"]
+"LazySequenceProtocol" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="LazySequenceProtocol (protocol)"]
+"LosslessStringConvertible" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="LosslessStringConvertible (protocol)"]
+"ManagedBuffer" [color="#9C0027", fillcolor="#CF1C5AE6"] [tooltip="ManagedBuffer (class)"]
+"ManagedBufferPointer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="ManagedBufferPointer (struct)"]
+"MemoryLayout" [color="#0577E6", fillcolor="#1E90FFE6"] [tooltip="MemoryLayout (enum)"]
+"Mirror" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Mirror (struct)"]
+"MirrorPath" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="MirrorPath (protocol)"]
+"MutableCollection" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="MutableCollection (protocol)"]
+"Never" [color="#0577E6", fillcolor="#1E90FFE6"] [tooltip="Never (enum)"]
+"Numeric" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="Numeric (protocol)"]
+"ObjectIdentifier" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="ObjectIdentifier (struct)"]
+"OpaquePointer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="OpaquePointer (struct)"]
+"OptionSet" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="OptionSet (protocol)"]
+"Optional" [color="#0577E6", fillcolor="#1E90FFE6"] [tooltip="Optional (enum)"]
+"PartialKeyPath" [color="#9C0027", fillcolor="#CF1C5AE6"] [tooltip="PartialKeyPath (class)"]
+"PartialRangeFrom" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="PartialRangeFrom (struct)"]
+"PartialRangeThrough" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="PartialRangeThrough (struct)"]
+"PartialRangeUpTo" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="PartialRangeUpTo (struct)"]
+"Random" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Random (struct)"]
+"RandomAccessCollection" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="RandomAccessCollection (protocol)"]
+"RandomNumberGenerator" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="RandomNumberGenerator (protocol)"]
+"Range" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Range (struct)"]
+"RangeExpression" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="RangeExpression (protocol)"]
+"RangeReplaceableCollection" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="RangeReplaceableCollection (protocol)"]
+"RawRepresentable" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="RawRepresentable (protocol)"]
+"ReferenceWritableKeyPath" [color="#9C0027", fillcolor="#CF1C5AE6"] [tooltip="ReferenceWritableKeyPath (class)"]
+"Repeated" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Repeated (struct)"]
+"ReversedCollection" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="ReversedCollection (struct)"]
+"Sequence" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="Sequence (protocol)"]
+"Set" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Set (struct)"]
+"SetAlgebra" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="SetAlgebra (protocol)"]
+"SetIterator" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="SetIterator (struct)"]
+"SignedInteger" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="SignedInteger (protocol)"]
+"SignedNumeric" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="SignedNumeric (protocol)"]
+"SingleValueDecodingContainer" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="SingleValueDecodingContainer (protocol)"]
+"SingleValueEncodingContainer" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="SingleValueEncodingContainer (protocol)"]
+"Slice" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Slice (struct)"]
+"StaticString" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="StaticString (struct)"]
+"StrideThrough" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="StrideThrough (struct)"]
+"StrideThroughIterator" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="StrideThroughIterator (struct)"]
+"StrideTo" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="StrideTo (struct)"]
+"StrideToIterator" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="StrideToIterator (struct)"]
+"Strideable" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="Strideable (protocol)"]
+"String" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="String (struct)"]
+"StringProtocol" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="StringProtocol (protocol)"]
+"Substring" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Substring (struct)"]
+"TextOutputStream" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="TextOutputStream (protocol)"]
+"TextOutputStreamable" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="TextOutputStreamable (protocol)"]
+"UInt" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UInt (struct)"]
+"UInt16" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UInt16 (struct)"]
+"UInt32" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UInt32 (struct)"]
+"UInt64" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UInt64 (struct)"]
+"UInt8" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UInt8 (struct)"]
+"UnfoldSequence" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UnfoldSequence (struct)"]
+"Unicode" [color="#0577E6", fillcolor="#1E90FFE6"] [tooltip="Unicode (enum)"]
+"UnicodeCodec" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="UnicodeCodec (protocol)"]
+"UnicodeDecodingResult" [color="#0577E6", fillcolor="#1E90FFE6"] [tooltip="UnicodeDecodingResult (enum)"]
+"UnkeyedDecodingContainer" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="UnkeyedDecodingContainer (protocol)"]
+"UnkeyedEncodingContainer" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="UnkeyedEncodingContainer (protocol)"]
+"Unmanaged" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Unmanaged (struct)"]
+"UnsafeBufferPointer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UnsafeBufferPointer (struct)"]
+"UnsafeMutableBufferPointer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UnsafeMutableBufferPointer (struct)"]
+"UnsafeMutablePointer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UnsafeMutablePointer (struct)"]
+"UnsafeMutableRawBufferPointer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UnsafeMutableRawBufferPointer (struct)"]
+"UnsafeMutableRawPointer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UnsafeMutableRawPointer (struct)"]
+"UnsafePointer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UnsafePointer (struct)"]
+"UnsafeRawBufferPointer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UnsafeRawBufferPointer (struct)"]
+"UnsafeRawPointer" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="UnsafeRawPointer (struct)"]
+"UnsignedInteger" [color="#07871B", fillcolor="#3ABA4EE6"] [tooltip="UnsignedInteger (protocol)"]
+"WritableKeyPath" [color="#9C0027", fillcolor="#CF1C5AE6"] [tooltip="WritableKeyPath (class)"]
+"Zip2Sequence" [color="#7B0FBC", fillcolor="#AE42EFE6"] [tooltip="Zip2Sequence (struct)"]
+        "AnyBidirectionalCollection" -> "BidirectionalCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AnyCollection" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AnyHashable" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AnyHashable" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AnyHashable" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AnyHashable" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AnyHashable" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AnyIndex" -> "Comparable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AnyIterator" -> "IteratorProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AnyIterator" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AnyKeyPath" -> "Hashable" [color="#9C0027", fillcolor="#CF1C5AE6"]
+"AnyRandomAccessCollection" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AnySequence" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Array" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Array" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Array" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Array" -> "Decodable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Array" -> "Encodable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Array" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Array" -> "ExpressibleByArrayLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Array" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Array" -> "MutableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Array" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Array" -> "RangeReplaceableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ArraySlice" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ArraySlice" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ArraySlice" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ArraySlice" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ArraySlice" -> "ExpressibleByArrayLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ArraySlice" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ArraySlice" -> "MutableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ArraySlice" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ArraySlice" -> "RangeReplaceableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AutoreleasingUnsafeMutablePointer" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AutoreleasingUnsafeMutablePointer" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"AutoreleasingUnsafeMutablePointer" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"BidirectionalCollection" -> "Collection" [color="#07871B", fillcolor="#3ABA4EE6"]
+"BinaryFloatingPoint" -> "ExpressibleByFloatLiteral" [color="#07871B", fillcolor="#3ABA4EE6"]
+"BinaryFloatingPoint" -> "FloatingPoint" [color="#07871B", fillcolor="#3ABA4EE6"]
+"BinaryInteger" -> "CustomStringConvertible" [color="#07871B", fillcolor="#3ABA4EE6"]
+"BinaryInteger" -> "Hashable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"BinaryInteger" -> "Numeric" [color="#07871B", fillcolor="#3ABA4EE6"]
+"BinaryInteger" -> "Strideable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"Bool" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Bool" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Bool" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Bool" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Bool" -> "ExpressibleByBooleanLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Bool" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Bool" -> "LosslessStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"CVaListPointer" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Character" -> "Comparable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Character" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Character" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Character" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Character" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Character" -> "ExpressibleByExtendedGraphemeClusterLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Character" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Character" -> "LosslessStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Character" -> "TextOutputStreamable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ClosedRange" -> "BidirectionalCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ClosedRange" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ClosedRange" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ClosedRange" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ClosedRange" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ClosedRange" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ClosedRange" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ClosedRange" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ClosedRange" -> "RangeExpression" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ClosedRange" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"CodingKey" -> "CustomDebugStringConvertible" [color="#07871B", fillcolor="#3ABA4EE6"]
+"CodingKey" -> "CustomStringConvertible" [color="#07871B", fillcolor="#3ABA4EE6"]
+"CodingUserInfoKey" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"CodingUserInfoKey" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"CodingUserInfoKey" -> "RawRepresentable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Collection" -> "Sequence" [color="#07871B", fillcolor="#3ABA4EE6"]
+"CollectionOfOne" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"CollectionOfOne" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"CollectionOfOne" -> "MutableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"CollectionOfOne" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Comparable" -> "Equatable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"ContiguousArray" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ContiguousArray" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ContiguousArray" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ContiguousArray" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ContiguousArray" -> "ExpressibleByArrayLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ContiguousArray" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ContiguousArray" -> "MutableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ContiguousArray" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ContiguousArray" -> "RangeReplaceableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"CustomLeafReflectable" -> "CustomReflectable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"DecodingError" -> "Error" [color="#0577E6", fillcolor="#1E90FFE6"]
+"DefaultIndices" -> "BidirectionalCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"DefaultIndices" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"DefaultIndices" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Dictionary" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Dictionary" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Dictionary" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Dictionary" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Dictionary" -> "Decodable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Dictionary" -> "Encodable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Dictionary" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Dictionary" -> "ExpressibleByDictionaryLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Dictionary" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Dictionary" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"DictionaryIterator" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"DictionaryIterator" -> "IteratorProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"DictionaryLiteral" -> "ExpressibleByDictionaryLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"DictionaryLiteral" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Double" -> "BinaryFloatingPoint" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Double" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Double" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Double" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Double" -> "ExpressibleByIntegerLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Double" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Double" -> "LosslessStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Double" -> "Strideable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"EmptyCollection" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"EmptyCollection" -> "MutableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"EmptyCollection" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"EmptyCollection" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"EncodingError" -> "Error" [color="#0577E6", fillcolor="#1E90FFE6"]
+"EnumeratedIterator" -> "IteratorProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"EnumeratedIterator" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"EnumeratedSequence" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ExpressibleByExtendedGraphemeClusterLiteral" -> "ExpressibleByUnicodeScalarLiteral" [color="#07871B", fillcolor="#3ABA4EE6"]
+"ExpressibleByStringLiteral" -> "ExpressibleByExtendedGraphemeClusterLiteral" [color="#07871B", fillcolor="#3ABA4EE6"]
+"FixedWidthInteger" -> "BinaryInteger" [color="#07871B", fillcolor="#3ABA4EE6"]
+"FixedWidthInteger" -> "LosslessStringConvertible" [color="#07871B", fillcolor="#3ABA4EE6"]
+"FlattenCollection" -> "BidirectionalCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"FlattenCollection" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"FlattenCollection" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"FlattenSequence" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float" -> "BinaryFloatingPoint" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float" -> "ExpressibleByIntegerLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float" -> "LosslessStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float" -> "Strideable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float80" -> "BinaryFloatingPoint" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float80" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float80" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float80" -> "ExpressibleByIntegerLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float80" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float80" -> "LosslessStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Float80" -> "Strideable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"FloatingPoint" -> "Hashable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"FloatingPoint" -> "SignedNumeric" [color="#07871B", fillcolor="#3ABA4EE6"]
+"FloatingPoint" -> "Strideable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"FloatingPointSign" -> "Int" [color="#0577E6", fillcolor="#1E90FFE6"]
+"Hashable" -> "Equatable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"IndexingIterator" -> "IteratorProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"IndexingIterator" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int" -> "FixedWidthInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int" -> "MirrorPath" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int" -> "SignedInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int16" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int16" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int16" -> "FixedWidthInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int16" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int16" -> "SignedInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int32" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int32" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int32" -> "FixedWidthInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int32" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int32" -> "SignedInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int64" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int64" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int64" -> "FixedWidthInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int64" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int64" -> "SignedInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int8" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int8" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int8" -> "FixedWidthInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int8" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Int8" -> "SignedInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"IteratorOverOne" -> "IteratorProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"IteratorOverOne" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"IteratorSequence" -> "IteratorProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"IteratorSequence" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"JoinedSequence" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"KeyPath" -> "PartialKeyPath" [color="#9C0027", fillcolor="#CF1C5AE6"]
+"KeyedDecodingContainer" -> "KeyedDecodingContainerProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"KeyedEncodingContainer" -> "KeyedEncodingContainerProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyCollection" -> "BidirectionalCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyCollection" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyCollection" -> "LazyCollectionProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyCollection" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyCollection" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyCollectionProtocol" -> "Collection" [color="#07871B", fillcolor="#3ABA4EE6"]
+"LazyCollectionProtocol" -> "LazySequenceProtocol" [color="#07871B", fillcolor="#3ABA4EE6"]
+"LazyDropWhileCollection" -> "BidirectionalCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyDropWhileCollection" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyDropWhileCollection" -> "LazyCollectionProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyDropWhileCollection" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyDropWhileSequence" -> "LazySequenceProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyDropWhileSequence" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyFilterCollection" -> "BidirectionalCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyFilterCollection" -> "LazyCollectionProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyFilterCollection" -> "LazySequenceProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyFilterSequence" -> "LazySequenceProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyMapCollection" -> "BidirectionalCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyMapCollection" -> "LazyCollectionProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyMapCollection" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyMapCollection" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyMapSequence" -> "LazySequenceProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyPrefixWhileCollection" -> "BidirectionalCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyPrefixWhileCollection" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyPrefixWhileCollection" -> "LazyCollectionProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyPrefixWhileCollection" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyPrefixWhileSequence" -> "LazySequenceProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazyPrefixWhileSequence" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazySequence" -> "LazySequenceProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"LazySequenceProtocol" -> "Sequence" [color="#07871B", fillcolor="#3ABA4EE6"]
+"LosslessStringConvertible" -> "CustomStringConvertible" [color="#07871B", fillcolor="#3ABA4EE6"]
+"ManagedBufferPointer" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Mirror" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Mirror" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"MutableCollection" -> "Collection" [color="#07871B", fillcolor="#3ABA4EE6"]
+"Numeric" -> "Equatable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"Numeric" -> "ExpressibleByIntegerLiteral" [color="#07871B", fillcolor="#3ABA4EE6"]
+"ObjectIdentifier" -> "Comparable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ObjectIdentifier" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ObjectIdentifier" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ObjectIdentifier" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"OpaquePointer" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"OpaquePointer" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"OpaquePointer" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"OpaquePointer" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"OptionSet" -> "RawRepresentable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"OptionSet" -> "SetAlgebra" [color="#07871B", fillcolor="#3ABA4EE6"]
+"Optional" -> "CustomDebugStringConvertible" [color="#0577E6", fillcolor="#1E90FFE6"]
+"Optional" -> "CustomReflectable" [color="#0577E6", fillcolor="#1E90FFE6"]
+"Optional" -> "Decodable" [color="#0577E6", fillcolor="#1E90FFE6"]
+"Optional" -> "Encodable" [color="#0577E6", fillcolor="#1E90FFE6"]
+"Optional" -> "Equatable" [color="#0577E6", fillcolor="#1E90FFE6"]
+"Optional" -> "ExpressibleByNilLiteral" [color="#0577E6", fillcolor="#1E90FFE6"]
+"Optional" -> "Hashable" [color="#0577E6", fillcolor="#1E90FFE6"]
+"PartialKeyPath" -> "AnyKeyPath" [color="#9C0027", fillcolor="#CF1C5AE6"]
+"PartialRangeFrom" -> "RangeExpression" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"PartialRangeFrom" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"PartialRangeThrough" -> "RangeExpression" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"PartialRangeUpTo" -> "RangeExpression" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Random" -> "RandomNumberGenerator" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"RandomAccessCollection" -> "BidirectionalCollection" [color="#07871B", fillcolor="#3ABA4EE6"]
+"Range" -> "BidirectionalCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Range" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Range" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Range" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Range" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Range" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Range" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Range" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Range" -> "RangeExpression" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Range" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"RangeReplaceableCollection" -> "Collection" [color="#07871B", fillcolor="#3ABA4EE6"]
+"ReferenceWritableKeyPath" -> "WritableKeyPath" [color="#9C0027", fillcolor="#CF1C5AE6"]
+"Repeated" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ReversedCollection" -> "BidirectionalCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ReversedCollection" -> "LazyCollectionProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ReversedCollection" -> "LazySequenceProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ReversedCollection" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"ReversedCollection" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Set" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Set" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Set" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Set" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Set" -> "Decodable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Set" -> "Encodable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Set" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Set" -> "ExpressibleByArrayLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Set" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Set" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Set" -> "SetAlgebra" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"SetAlgebra" -> "Equatable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"SetAlgebra" -> "ExpressibleByArrayLiteral" [color="#07871B", fillcolor="#3ABA4EE6"]
+"SetIterator" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"SetIterator" -> "IteratorProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"SignedInteger" -> "BinaryInteger" [color="#07871B", fillcolor="#3ABA4EE6"]
+"SignedInteger" -> "SignedNumeric" [color="#07871B", fillcolor="#3ABA4EE6"]
+"SignedNumeric" -> "Numeric" [color="#07871B", fillcolor="#3ABA4EE6"]
+"Slice" -> "BidirectionalCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Slice" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Slice" -> "LazyCollectionProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Slice" -> "LazySequenceProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Slice" -> "MutableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Slice" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Slice" -> "RangeReplaceableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StaticString" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StaticString" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StaticString" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StaticString" -> "ExpressibleByExtendedGraphemeClusterLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StaticString" -> "ExpressibleByStringLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StaticString" -> "ExpressibleByUnicodeScalarLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StrideThrough" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StrideThrough" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StrideThrough" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StrideThroughIterator" -> "IteratorProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StrideTo" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StrideTo" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StrideTo" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StrideToIterator" -> "IteratorProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Strideable" -> "Comparable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"String" -> "Comparable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"String" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"String" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"String" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"String" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"String" -> "ExpressibleByStringLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"String" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"String" -> "MirrorPath" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"String" -> "RangeReplaceableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"String" -> "StringProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"String" -> "TextOutputStream" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"String" -> "TextOutputStreamable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"StringProtocol" -> "BidirectionalCollection" [color="#07871B", fillcolor="#3ABA4EE6"]
+"StringProtocol" -> "Comparable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"StringProtocol" -> "ExpressibleByStringLiteral" [color="#07871B", fillcolor="#3ABA4EE6"]
+"StringProtocol" -> "Hashable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"StringProtocol" -> "LosslessStringConvertible" [color="#07871B", fillcolor="#3ABA4EE6"]
+"StringProtocol" -> "TextOutputStream" [color="#07871B", fillcolor="#3ABA4EE6"]
+"StringProtocol" -> "TextOutputStreamable" [color="#07871B", fillcolor="#3ABA4EE6"]
+"Substring" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Substring" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Substring" -> "CustomStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Substring" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Substring" -> "ExpressibleByExtendedGraphemeClusterLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Substring" -> "ExpressibleByStringLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Substring" -> "ExpressibleByUnicodeScalarLiteral" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Substring" -> "LosslessStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Substring" -> "RangeReplaceableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Substring" -> "StringProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Substring" -> "TextOutputStream" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"Substring" -> "TextOutputStreamable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt" -> "FixedWidthInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt" -> "UnsignedInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt16" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt16" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt16" -> "FixedWidthInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt16" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt16" -> "UnsignedInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt32" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt32" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt32" -> "FixedWidthInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt32" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt32" -> "UnsignedInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt64" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt64" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt64" -> "FixedWidthInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt64" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt64" -> "UnsignedInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt8" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt8" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt8" -> "FixedWidthInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt8" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UInt8" -> "UnsignedInteger" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnfoldSequence" -> "IteratorProtocol" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnfoldSequence" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnicodeDecodingResult" -> "Equatable" [color="#0577E6", fillcolor="#1E90FFE6"]
+"UnsafeBufferPointer" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeBufferPointer" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeBufferPointer" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeBufferPointer" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableBufferPointer" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableBufferPointer" -> "MutableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableBufferPointer" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableBufferPointer" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutablePointer" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutablePointer" -> "Comparable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutablePointer" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutablePointer" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutablePointer" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutablePointer" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutablePointer" -> "Strideable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableRawBufferPointer" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableRawBufferPointer" -> "MutableCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableRawBufferPointer" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableRawBufferPointer" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableRawPointer" -> "Comparable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableRawPointer" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableRawPointer" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableRawPointer" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableRawPointer" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeMutableRawPointer" -> "Strideable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafePointer" -> "CVarArg" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafePointer" -> "Comparable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafePointer" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafePointer" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafePointer" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafePointer" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafePointer" -> "Strideable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeRawBufferPointer" -> "Collection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeRawBufferPointer" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeRawBufferPointer" -> "RandomAccessCollection" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeRawBufferPointer" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeRawPointer" -> "Comparable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeRawPointer" -> "CustomDebugStringConvertible" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeRawPointer" -> "CustomReflectable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeRawPointer" -> "Equatable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeRawPointer" -> "Hashable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsafeRawPointer" -> "Strideable" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+"UnsignedInteger" -> "BinaryInteger" [color="#07871B", fillcolor="#3ABA4EE6"]
+"WritableKeyPath" -> "KeyPath" [color="#9C0027", fillcolor="#CF1C5AE6"]
+"Zip2Sequence" -> "Sequence" [color="#7B0FBC77", fillcolor="#AE42EFE6"]
+
+        // Leafs on last level
+        subgraph {
+          rank="min"
+          "AnyBidirectionalCollection"
+"AnyCollection"
+"AnyHashable"
+"AnyIndex"
+"AnyIterator"
+"AnyRandomAccessCollection"
+"AnySequence"
+"Array"
+"ArraySlice"
+"AutoreleasingUnsafeMutablePointer"
+"Bool"
+"CVaListPointer"
+"CaseIterable"
+"Character"
+"ClosedRange"
+"CodingKey"
+"CodingUserInfoKey"
+"CollectionOfOne"
+"CommandLine"
+"ContiguousArray"
+"CustomLeafReflectable"
+"CustomPlaygroundDisplayConvertible"
+"Decoder"
+"DecodingError"
+"DefaultIndices"
+"Dictionary"
+"DictionaryIterator"
+"DictionaryLiteral"
+"Double"
+"EmptyCollection"
+"Encoder"
+"EncodingError"
+"EnumeratedIterator"
+"EnumeratedSequence"
+"FlattenCollection"
+"FlattenSequence"
+"Float"
+"Float80"
+"FloatingPointClassification"
+"FloatingPointRoundingRule"
+"FloatingPointSign"
+"Hasher"
+"IndexingIterator"
+"Int16"
+"Int32"
+"Int64"
+"Int8"
+"IteratorOverOne"
+"IteratorSequence"
+"JoinedSequence"
+"KeyedDecodingContainer"
+"KeyedEncodingContainer"
+"LazyCollection"
+"LazyDropWhileCollection"
+"LazyDropWhileSequence"
+"LazyFilterCollection"
+"LazyFilterSequence"
+"LazyMapCollection"
+"LazyMapSequence"
+"LazyPrefixWhileCollection"
+"LazyPrefixWhileSequence"
+"LazySequence"
+"ManagedBuffer"
+"ManagedBufferPointer"
+"MemoryLayout"
+"Mirror"
+"Never"
+"ObjectIdentifier"
+"OpaquePointer"
+"OptionSet"
+"Optional"
+"PartialRangeFrom"
+"PartialRangeThrough"
+"PartialRangeUpTo"
+"Random"
+"Range"
+"ReferenceWritableKeyPath"
+"Repeated"
+"ReversedCollection"
+"Set"
+"SetIterator"
+"SingleValueDecodingContainer"
+"SingleValueEncodingContainer"
+"Slice"
+"StaticString"
+"StrideThrough"
+"StrideThroughIterator"
+"StrideTo"
+"StrideToIterator"
+"String"
+"Substring"
+"UInt"
+"UInt16"
+"UInt32"
+"UInt64"
+"UInt8"
+"UnfoldSequence"
+"Unicode"
+"UnicodeCodec"
+"UnicodeDecodingResult"
+"UnkeyedDecodingContainer"
+"UnkeyedEncodingContainer"
+"Unmanaged"
+"UnsafeBufferPointer"
+"UnsafeMutableBufferPointer"
+"UnsafeMutablePointer"
+"UnsafeMutableRawBufferPointer"
+"UnsafeMutableRawPointer"
+"UnsafePointer"
+"UnsafeRawBufferPointer"
+"UnsafeRawPointer"
+"Zip2Sequence"
+        }
+    }
